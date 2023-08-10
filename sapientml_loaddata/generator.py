@@ -20,7 +20,7 @@ from sapientml.params import Dataset, Code, Task
 from sapientml.generator import CodeBlockGenerator
 
 template_env = Environment(
-    loader=FileSystemLoader(f"{os.path.dirname(__file__)}/../templates"), trim_blocks=True
+    loader=FileSystemLoader(f"{os.path.dirname(__file__)}/templates"), trim_blocks=True
 )
 ROW_THRESHOLD_FOR_SAMPLING = 100000
 
