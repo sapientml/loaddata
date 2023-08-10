@@ -24,7 +24,7 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.plugins."code_block_generator"]
-loaddata = "loaddata:LoadData"
+loaddata = "sapientml_loaddata:LoadData"
 
 [tool.pysen]
 version = "0.10"
