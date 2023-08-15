@@ -1,3 +1,5 @@
+{% if (validation and (not task.validation_dataset_path)) or ((not validation) and (not task.test_dataset_path)) %}
+
 # TRAIN-TEST SPLIT
 {% if task.split_method == "random" %}
 {% if task.split_stratify == True %}
@@ -37,6 +39,7 @@ def split_dataset(dataset, split_column_name="{{ task.split_column_name }}", spl
 {% endif %}
 {% if not task.test_dataset_path %}
 __train_dataset, __test_dataset = split_dataset(__train_dataset)
+{% endif %}
 {% endif %}
 {% if validation and (not task.validation_dataset_path) %}
 __train_dataset, __validation_dataset = split_dataset(__train_dataset)
