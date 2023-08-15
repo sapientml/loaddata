@@ -45,8 +45,8 @@ class LoadData(CodeBlockGenerator):
         code.predict += _render(tpl, dataset=dataset, task=task, script_type="predict")
 
         tpl = template_env.get_template("split.py.jinja")
-        code.validation += _render(tpl, task=task, validation=True)
-        code.test += _render(tpl, task=task, validation=False)
+        code.validation += _render(tpl, dataset=dataset, task=task, validation=True)
+        code.test += _render(tpl, dataset=dataset, task=task, validation=False)
 
         tpl = template_env.get_template("subsample.py.jinja")
         code.validation += _render(tpl, task=task, sample_size=ROW_THRESHOLD_FOR_SAMPLING)
