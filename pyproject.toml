@@ -2,12 +2,15 @@
 name = "sapientml-loaddata"
 version = "0"
 description = "A SapientML plugin of CodeBlockGenerator for loading dataset"
-authors = ["Kosaku Kimura <kimura.kosaku@fujitsu.com>"]
+authors = [
+    "Kosaku Kimura <kimura.kosaku@fujitsu.com>",
+    "Akira Ura <ura.akira@fujitsu.com>",
+]
 license = "Apache-2.0"
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.13"
-sapientml = "^0.1.4"
+python = ">=3.10,<3.13"
+sapientml = "*"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.0"
