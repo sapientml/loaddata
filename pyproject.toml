@@ -50,6 +50,6 @@ line_length = 120
 py_version = "py310"
 
 [tool.pysen.lint.source]
-includes = ["sapientml/", "tests/"]
+includes = ["sapientml_loaddata/", "tests/"]
 [pytest]
 addopts = "-p no:cacheprovider -s"
