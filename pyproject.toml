@@ -32,6 +32,9 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.plugins."code_block_generator"]
 loaddata = "sapientml_loaddata:LoadData"
 
+[tool.poetry.plugins."export_module"]
+sample-dataset = "sapientml_loaddata.lib:sample_dataset"
+
 [tool.pysen]
 version = "0.10"
 
