@@ -13,15 +13,12 @@
 # limitations under the License.
 
 import os
-import pandas as pd
 
 from jinja2 import Environment, FileSystemLoader
-from sapientml.params import Dataset, Code, Task
 from sapientml.generator import CodeBlockGenerator
+from sapientml.params import Code, Dataset, Task
 
-template_env = Environment(
-    loader=FileSystemLoader(f"{os.path.dirname(__file__)}/templates"), trim_blocks=True
-)
+template_env = Environment(loader=FileSystemLoader(f"{os.path.dirname(__file__)}/../../templates"), trim_blocks=True)
 ROW_THRESHOLD_FOR_SAMPLING = 100000
 
 
@@ -31,7 +28,6 @@ def _render(tpl, *args, **kwargs):
 
 
 class LoadData(CodeBlockGenerator):
-
     def generate_code(self, dataset: Dataset, task: Task):
         code = Code()
         code.validation = code.test = code.train = code.predict = "# *** GENERATED PIPELINE ***\n\n"
