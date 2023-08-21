@@ -29,10 +29,10 @@ pre-commit = "^3.3.3"
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.poetry.plugins."code_block_generator"]
+[tool.poetry.plugins."sapientml.code_block_generator"]
 loaddata = "sapientml_loaddata:LoadData"
 
-[tool.poetry.plugins."export_modules"]
+[tool.poetry.plugins."sapientml.export_modules"]
 sample-dataset = "sapientml_loaddata.lib"
 
 [tool.pysen]
