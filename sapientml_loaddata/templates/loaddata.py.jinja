@@ -35,6 +35,7 @@ __test_dataset = pd.read_pickle("{{ dataset.test_data_path }}")
 __test_dataset = pd.read_csv("{{ dataset.test_data_path }}", encoding="{{ dataset.csv_encoding }}", delimiter="{{ dataset.csv_delimiter }}")
 {% endif %}
 {% if dataset.ignore_columns %}
+__test_dataset_prediction_columns = __test_dataset
 __test_dataset = __test_dataset.drop(ignore_columns, axis=1, errors="ignore")
 {% endif %}
 {% endif %}{# if not validation and dataset.test_data_path #}
