@@ -2,7 +2,7 @@
 
 # TRAIN-TEST SPLIT
 {% if task.split_method == "random" %}
-{% if task.split_stratify == True %}
+{% if task.split_stratification %}
 from sklearn.model_selection import train_test_split
 def split_dataset(dataset, train_size={{ task.split_train_size }}, random_state={{ task.split_seed }}):
     train_dataset, test_dataset = train_test_split(dataset, train_size=train_size, random_state=random_state, stratify=dataset["{{task.target_columns[0]}}"])
@@ -39,6 +39,7 @@ def split_dataset(dataset, split_column_name="{{ task.split_column_name }}", spl
 {% endif %}
 {% if not dataset.test_data_path %}
 __train_dataset, __test_dataset = split_dataset(__train_dataset)
+__test_dataset_prediction_columns = __test_dataset
 {% endif %}
 {% endif %}
 {% if validation and (not dataset.validation_data_path) %}
