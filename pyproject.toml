@@ -51,5 +51,7 @@ py_version = "py310"
 
 [tool.pysen.lint.source]
 includes = ["sapientml_loaddata/", "tests/"]
-[pytest]
-addopts = "-p no:cacheprovider -s"
+
+[tool.pytest.ini_options]
+addopts = "-s -x --cov=sapientml_loaddata"
+testpaths = ["tests"]
