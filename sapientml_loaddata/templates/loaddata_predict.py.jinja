@@ -18,7 +18,7 @@ __test_dataset = pd.read_pickle("./test.pkl")
 __test_dataset = pd.read_csv("./test.csv", encoding="{{ dataset.csv_encoding }}", delimiter="{{ dataset.csv_delimiter }}")
 {% endif %}
 {% endif %}
-{% if dataset.ignore_columns %}
 __test_dataset_prediction_columns = __test_dataset
+{% if dataset.ignore_columns %}
 __test_dataset = __test_dataset.drop(ignore_columns, axis=1, errors="ignore")
 {% endif %}
