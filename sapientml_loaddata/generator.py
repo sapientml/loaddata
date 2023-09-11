@@ -29,6 +29,23 @@ def _render(tpl, *args, **kwargs):
 
 class LoadData(CodeBlockGenerator):
     def generate_code(self, dataset: Dataset, task: Task):
+        """Generates validation, test, train and predict code snippets for the pipeline.
+
+        This function will update the validation_dataframe, training_dataframe by
+        droping the ignore column.
+
+        Parameters
+        ----------
+        dataset : Dataset
+           Object of Dataset class containing the details of dataset.
+        task : Task
+           Object of Task class containing the details of task.
+
+        Returns
+        -------
+        dataset, code : Tuple[Dataset, Code]
+
+        """
         code = Code()
         code.validation = code.test = code.train = code.predict = "# *** GENERATED PIPELINE ***\n\n"
 
