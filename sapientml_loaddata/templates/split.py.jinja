@@ -38,13 +38,13 @@ def split_dataset(dataset, split_column_name="{{ task.split_column_name }}", spl
     return train_dataset, test_dataset
 {% endif %}
 {% if not dataset.test_data_path %}
-__train_dataset, __test_dataset = split_dataset(__train_dataset)
-__test_dataset_prediction_columns = __test_dataset
+train_dataset, test_dataset = split_dataset(train_dataset)
+test_dataset_prediction_columns = test_dataset
 {% endif %}
 {% endif %}
 {% if validation and (not dataset.validation_data_path) %}
-__train_dataset, __validation_dataset = split_dataset(__train_dataset)
+train_dataset, validation_dataset = split_dataset(train_dataset)
 {% endif %}
 {% if validation %}
-__test_dataset = __validation_dataset
+test_dataset = validation_dataset
 {% endif %}

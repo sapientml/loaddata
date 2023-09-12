@@ -6,11 +6,11 @@ ignore_columns = {{ dataset.ignore_columns }}
 {% endif %}
 
 {% if dataset.training_data_path.endswith(".pkl") %}
-__train_dataset = pd.read_pickle("./training.pkl")
+train_dataset = pd.read_pickle("./training.pkl")
 {% else %}
-__train_dataset = pd.read_csv("./training.csv", encoding="{{ dataset.csv_encoding }}", delimiter="{{ dataset.csv_delimiter }}")
+train_dataset = pd.read_csv("./training.csv", encoding="{{ dataset.csv_encoding }}", delimiter="{{ dataset.csv_delimiter }}")
 {% endif %}
 {% if dataset.ignore_columns %}
-__train_dataset = __train_dataset.drop(ignore_columns, axis=1, errors="ignore")
+train_dataset = train_dataset.drop(ignore_columns, axis=1, errors="ignore")
 {% endif %}
 
