@@ -12,6 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .generator import LoadData
+from .generator import LoadData, LoadDataConfig
 
-__all__ = ["LoadData"]
+__all__ = ["LoadData", "LoadDataConfig"]
