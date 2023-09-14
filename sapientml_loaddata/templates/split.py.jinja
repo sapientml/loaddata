@@ -39,12 +39,8 @@ def split_dataset(dataset, split_column_name="{{ task.split_column_name }}", spl
 {% endif %}
 {% if not dataset.test_data_path %}
 train_dataset, test_dataset = split_dataset(train_dataset)
-test_dataset_prediction_columns = test_dataset
 {% endif %}
 {% endif %}
 {% if validation and (not dataset.validation_data_path) %}
 train_dataset, validation_dataset = split_dataset(train_dataset)
-{% endif %}
-{% if validation %}
-test_dataset = validation_dataset
 {% endif %}
