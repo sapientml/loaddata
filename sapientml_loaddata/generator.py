@@ -29,6 +29,14 @@ def _render(tpl, *args, **kwargs):
 
 
 class LoadDataConfig(Config):
+    """Configuration arguments for sapientml_loadata.LoadData class.
+
+    Parameters
+    ----------
+    id_columns_for_prediction: list[str] or None
+        ID columns for prediction.
+    """
+
     id_columns_for_prediction: Optional[list[str]] = None
 
 
@@ -37,10 +45,10 @@ class LoadData(CodeBlockGenerator):
         self.config = LoadDataConfig(**kwargs)
 
     def generate_code(self, dataset: Dataset, task: Task):
-        """Generates validation, test, train and predict code snippets for the pipeline.
+        """Generates code including reading files, splitting the dataset, and subsampling.
 
-        This function will update the validation_dataframe, training_dataframe by
-        droping the ignore column.
+        This function will update the training_dataframe, validation_dataframe,
+        and test_dataframe by droping users' specified ignore_column.
 
         Parameters
         ----------
@@ -51,8 +59,10 @@ class LoadData(CodeBlockGenerator):
 
         Returns
         -------
-        dataset, code : Tuple[Dataset, Code]
-
+        dataset: Dataset
+            Dataset after dropping users' specified ignore_columns.
+        code: Code
+            Generated code.
         """
 
         code = Code()
